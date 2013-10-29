@@ -14,14 +14,24 @@ Bundle 'gmarik/vundle'
 Bundle 'majutsushi/tagbar'
 Bundle 'altercation/vim-colors-solarized'
 
+Bundle 'Rip-Rip/clang_complete'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'nvie/vim-flake8'
+Bundle 'walm/jshint'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/repeat'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-markdown'
+Bundle 'godlygeek/tabular'
+Bundle 'chreekat/vim-paren-crossharis'
+
+
 " Github repos of the user 'vim-scripts'
 " => can omit the username part
-Bundle 'L9'
-Bundle 'FuzzyFinder'
 
-" non github repos
-Bundle 'git://git.wincent.com/command-t.git'
-" ...
 
 filetype plugin indent on     
 " required!
