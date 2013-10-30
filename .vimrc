@@ -14,7 +14,7 @@ Bundle 'gmarik/vundle'
 Bundle 'majutsushi/tagbar'
 Bundle 'altercation/vim-colors-solarized'
 
-Bundle 'Rip-Rip/clang_complete'
+"Bundle 'Rip-Rip/clang_complete'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'nvie/vim-flake8'
@@ -27,6 +27,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-markdown'
 Bundle 'godlygeek/tabular'
 Bundle 'chreekat/vim-paren-crosshairs'
+Bundle 'Valloric/YouCompleteMe'
 
 
 " Github repos of the user 'vim-scripts'
@@ -669,7 +670,7 @@ function! SetupXMLEnviron()
 endfunction
 
 " show tabs normally as 4 spaces
-:set tabstop=4 shiftwidth=4 "no expandtab
+:set tabstop=2 shiftwidth=2 "no expandtab
 set listchars=tab:>-
 set list
 
@@ -718,7 +719,7 @@ set showcmd
 "  :20  :  up to 20 lines of command-line history will be remembered
 "  %    :  saves and restores the buffer list
 "  n... :  where to save the viminfo files
-set viminfo='10,\"100,:20,%,n~/.viminfo
+set viminfo='10,\"400,:20,%,n~/.viminfo
 
 function! ResCur()
   if line("'\"") <= line("$")
