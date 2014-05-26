@@ -27,6 +27,8 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-markdown'
 Bundle 'godlygeek/tabular'
 Bundle 'chreekat/vim-paren-crosshairs'
+Bundle 'kien/ctrlp.vim'
+Bundle 'Raimondi/delimitMate'
 Bundle 'Valloric/YouCompleteMe'
 
 
@@ -120,6 +122,7 @@ function! WinClose()
     bd
   endif
 endfunction
+
 if !has("gui_running")
     " XTerm
     noremap <silent> <Esc>[1;5B :call WinMove('j')<CR>
@@ -136,9 +139,7 @@ if !has("gui_running")
     noremap! <silent> <Esc>OS <ESC>:cn<CR>
     noremap <silent> <Esc>OR :lnext<CR>
     noremap! <silent> <Esc>OR <ESC>:lnext<CR>
-
     " Putty-ing from Windows
-    "
     if has("unix")
       let myosuname = system("uname")
       if myosuname =~ "OpenBSD"
@@ -201,8 +202,8 @@ noremap  <silent> _ :call WinMove('<')<CR>
 "
 " incremental search that highlights results
 "
-se incsearch
-se hlsearch
+set incsearch
+set hlsearch
 " Ctrl-L clears the highlight from the last search
 noremap <C-l> :nohlsearch<CR><C-l>
 noremap! <C-l> <ESC>:nohlsearch<CR><C-l>
@@ -259,17 +260,16 @@ noremap <S-Tab> :bp<CR>
 " Syntax-coloring of files
 "
 syntax on
-colorscheme elflord
 
 "
 " Disable cursors (force myself to learn VI moves)
 " Months later: It worked - I now only use the home row.
 " Leaving it here for any one else needing it.
 "
-"map <down> <nop>
-"map <left> <nop>
-"map <right> <nop>
-"map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+map <up> <nop>
 "
 "imap <down> <nop>
 "imap <left> <nop>
@@ -408,17 +408,6 @@ let g:ctrlp_working_path_mode = 0
 " Powerline settings
 "
 let g:Powerline_stl_path_style = 'short'
-
-"
-" For GVIM only
-"
-if has("gui_running")
-    " Horizontal scrollbar
-    set guioptions+=b
-    set nowrap
-    set guifont=Lucida\ Console\ Semi-Condensed\ 11
-    colorscheme evening
-endif
 
 "
 " Language-specific section
@@ -674,10 +663,6 @@ endfunction
 set listchars=tab:>-
 set list
 
-" use syntax highlighting
-syn on
-set background=dark
-
 " use spelling in English when typing set spell with own dictionary
 :set spellfile=~/.vim/spellfile.add
 :set spelllang=en_us
@@ -685,9 +670,6 @@ set background=dark
 " use auto indentation
 set smartindent
 set autoindent
-
-" highlight when searching
-set hlsearch
 
 " line numbers
 set number
@@ -704,14 +686,9 @@ autocmd FileType tex setlocal shiftwidth=2 tabstop=2 expandtab
 augroup filetypedetect
 au BufNewFile,BufRead *.cfdg setf cfdg
 augroup END
-filetype plugin on
 
 " make
 map <F12> :make<CR>
-
-set showcmd
-
-
 
 " Tell vim to remember certain things when we exit
 "  '10  :  marks will be remembered for up to 10 previously edited files
@@ -734,6 +711,29 @@ augroup resCur
 augroup END
 
 " gvim
-colorscheme torte
+set background=light
+colorscheme solarized
 set guioptions-=T
 set guifont=Terminus\ Bold\ 12
+if has("gui_running")
+  if has("gui_gtk2")
+    set guifont=Inconsolata\ 12
+  elseif has("gui_macvim")
+    set guifont=Menlo\ Regular:h14
+  elseif has("gui_win32")
+    set guifont=Consolas:h11:cANSI
+  endif
+endif
+
+"
+" For GVIM only
+"
+if has("gui_running")
+    " Horizontal scrollbar
+    set guioptions+=b
+    set nowrap
+"    set guifont=Lucida\ Console\ Semi-Condensed\ 11
+"    colorscheme evening
+endif
+
+
