@@ -2,40 +2,40 @@ set nocompatible               " be iMproved
 filetype off                   " required!
 
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required! 
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
-" My Bundles here:
+" My Plugin here:
 "
 " original repos on github
-Bundle 'majutsushi/tagbar'
-Bundle 'altercation/vim-colors-solarized'
+Plugin 'majutsushi/tagbar'
+Plugin 'altercation/vim-colors-solarized'
 
-"Bundle 'Rip-Rip/clang_complete'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'nvie/vim-flake8'
-Bundle 'walm/jshint.vim'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-markdown'
-Bundle 'godlygeek/tabular'
-Bundle 'chreekat/vim-paren-crosshairs'
-Bundle 'kien/ctrlp.vim'
-Bundle 'Raimondi/delimitMate'
-Bundle 'Valloric/YouCompleteMe'
-
+"Plugin 'Rip-Rip/clang_complete'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'nvie/vim-flake8'
+Plugin 'walm/jshint.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-markdown'
+Plugin 'godlygeek/tabular'
+Plugin 'chreekat/vim-paren-crosshairs'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'fholgado/minibufexpl.vim'
 
 " Github repos of the user 'vim-scripts'
 " => can omit the username part
 
-
+call vundle#end()
 filetype plugin indent on     
 " required!
 
@@ -711,7 +711,7 @@ augroup resCur
 augroup END
 
 " gvim
-set background=light
+set background=dark
 colorscheme solarized
 set guioptions-=T
 set guifont=Terminus\ Bold\ 12
@@ -735,5 +735,8 @@ if has("gui_running")
 "    set guifont=Lucida\ Console\ Semi-Condensed\ 11
 "    colorscheme evening
 endif
+
+"Eigene =)
+noremap <F2> :TlistToggle<CR> 
 
 
