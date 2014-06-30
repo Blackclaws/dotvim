@@ -40,8 +40,8 @@ filetype plugin indent on
 " required!
 
 
-se shiftwidth=4
-se sts=4
+"se shiftwidth=4
+"se sts=4
 se modelines=2
 se modeline
 se nocp
@@ -659,17 +659,17 @@ function! SetupXMLEnviron()
 endfunction
 
 " show tabs normally as 4 spaces
-:set tabstop=2 shiftwidth=2 "no expandtab
+set tabstop=2 shiftwidth=2 "no expandtab
 set listchars=tab:>-
 set list
 
 " use spelling in English when typing set spell with own dictionary
-:set spellfile=~/.vim/spellfile.add
-:set spelllang=en_us
+set spellfile=~/.vim/spellfile.add
+set spelllang=en_us
 
 " use auto indentation
-set smartindent
 set autoindent
+set smartindent
 
 " line numbers
 set number
@@ -678,14 +678,9 @@ set number
 set autochdir
 
 " expand tabs in c/cpp files
-autocmd FileType c,cpp setlocal shiftwidth=2 tabstop=2 expandtab
+autocmd FileType c,cpp setlocal shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType sh setlocal shiftwidth=2 tabstop=2 expandtab
 autocmd FileType tex setlocal shiftwidth=2 tabstop=2 expandtab
-
-" do cfdg highlights
-augroup filetypedetect
-au BufNewFile,BufRead *.cfdg setf cfdg
-augroup END
 
 " make
 map <F12> :make<CR>
@@ -714,12 +709,11 @@ augroup END
 set background=dark
 colorscheme solarized
 set guioptions-=T
-set guifont=Terminus\ Bold\ 12
 if has("gui_running")
   if has("gui_gtk2")
-    set guifont=Inconsolata\ 12
-  elseif has("gui_macvim")
-    set guifont=Menlo\ Regular:h14
+    set guifont=Inconsolata\ 10
+ elseif has("gui_macvim")
+  set guifont=Menlo\ Regular:h14
   elseif has("gui_win32")
     set guifont=Consolas:h11:cANSI
   endif
@@ -738,5 +732,6 @@ endif
 
 "Eigene =)
 noremap <F2> :TlistToggle<CR> 
+noremap <F3> :YcmCompleter GoTo<CR>  
 
-
+let g:ycm_confirm_extra_conf = 0
