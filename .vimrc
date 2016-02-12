@@ -5,16 +5,21 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Plugin 'gmarik/vundle'
 
 " My Plugin here:
 "
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'rhysd/vim-clang-format'
+Plugin 'rdnetto/YCM-Generator'
+Plugin 'jeaye/color_coded'
+
+
 " original repos on github
 Plugin 'majutsushi/tagbar'
 Plugin 'altercation/vim-colors-solarized'
 
-"Plugin 'Rip-Rip/clang_complete'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Lokaltog/vim-powerline'
 Plugin 'nvie/vim-flake8'
@@ -29,14 +34,16 @@ Plugin 'godlygeek/tabular'
 Plugin 'chreekat/vim-paren-crosshairs'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Raimondi/delimitMate'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'fholgado/minibufexpl.vim'
+
+source ~/.vim/vimrc_ycm
+
 
 " Github repos of the user 'vim-scripts'
 " => can omit the username part
 
 call vundle#end()
-filetype plugin indent on     
+filetype plugin indent on
 " required!
 
 
@@ -416,7 +423,7 @@ let g:Powerline_stl_path_style = 'short'
 "
 " For C and C++
 "
-    
+
 " libclang use is mandatory now
 "
 let g:clang_use_library = 1
@@ -575,7 +582,7 @@ endfunction
 " e.g. files looking like this:
 "
 "     <?xml version="1.0" encoding="utf-8" ?>
-"     <WhateverElement ... 
+"     <WhateverElement ...
 "             xsi:noNamespaceSchemaLocation="something.xsd"
 "             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 "         <AnotherElement>
@@ -652,7 +659,7 @@ function! SetupXMLEnviron()
     noremap <buffer> <F7> :make<CR>
     noremap! <buffer> <F7> :make<CR>
 
-    " In visual mode (with multiple lines selected) use Leader followed by '=' 
+    " In visual mode (with multiple lines selected) use Leader followed by '='
     " to align attribute assignments so that they line up horizontally
     " vmap <buffer> <Leader>= :s,\v\s*(\w+)\s*\=\s*,@\1=,g<CR>gv:!column -t -s @<CR>
     vmap <buffer> <Leader>= :Tabularize/\v\zs\w+\ze\=["']/l1l0<CR>
@@ -707,9 +714,10 @@ augroup END
 
 " gvim
 set background=dark
-colorscheme solarized
 set guioptions-=T
 if has("gui_running")
+
+  colorscheme solarized
   if has("gui_gtk2")
     set guifont=Inconsolata\ 10
  elseif has("gui_macvim")
@@ -717,6 +725,8 @@ if has("gui_running")
   elseif has("gui_win32")
     set guifont=Consolas:h11:cANSI
   endif
+else 
+  colorscheme torte
 endif
 
 "
@@ -731,7 +741,5 @@ if has("gui_running")
 endif
 
 "Eigene =)
-noremap <F2> :TlistToggle<CR> 
-noremap <F3> :YcmCompleter GoTo<CR>  
+noremap <F2> :TlistToggle<CR>
 
-let g:ycm_confirm_extra_conf = 0

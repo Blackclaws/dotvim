@@ -1,0 +1,33 @@
+
+" YCM
+
+noremap <F3> :YcmCompleter GoTo<CR>
+nnoremap <Space> <Nop>
+let mapleader = "\<Space>"
+
+noremap <F4> :YcmCompleter FixIt<CR>
+
+noremap <Leader>d :YcmShowDetailedDiagnostic<CR>
+noremap <Leader>gt :YcmCompleter GoTo<CR>
+noremap <Leader>t :YcmCompleter GetType<CR>
+noremap <Leader>f :YcmCompleter FixIt<CR>
+noremap <Leader>gd :YcmCompleter GetDoc<CR>
+
+noremap <Leader>n :cn<CR>
+noremap <Leader>p :cp<CR>
+
+let g:ycm_error_symbol = '!'
+let g:ycm_warning_symbol = '>>'
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_always_populate_location_list = 0
+let g:ycm_complete_in_comments = 1
+let g:ycm_echo_current_diagnostic = 1
+
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
+
+" Clang-Format
+
+map <Leader>cf :ClangFormat<cr>
+let g:clang_format#auto_format = 1
