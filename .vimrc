@@ -10,10 +10,10 @@ Plugin 'gmarik/vundle'
 
 " My Plugin here:
 "
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'rdnetto/YCM-Generator'
-Plugin 'jeaye/color_coded'
+"Plugin 'jeaye/color_coded'
 
 
 " original repos on github
@@ -35,6 +35,7 @@ Plugin 'chreekat/vim-paren-crosshairs'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'fholgado/minibufexpl.vim'
+Plugin 'mrk21/yaml-vim'
 
 source ~/.vim/vimrc_ycm
 
@@ -739,6 +740,9 @@ if has("gui_running")
 "    set guifont=Lucida\ Console\ Semi-Condensed\ 11
 "    colorscheme evening
 endif
+
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 "Eigene =)
 noremap <F2> :TlistToggle<CR>
